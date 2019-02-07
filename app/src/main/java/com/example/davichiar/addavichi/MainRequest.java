@@ -11,11 +11,12 @@ public class MainRequest extends StringRequest
     final static private String URL = "http://davichiar1.cafe24.com/Search.php";
     private Map<String, String> parameters;
 
-    public MainRequest(String name, Response.Listener<String> listener) {
+    public MainRequest(String name, String nameCheck, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
         parameters = new HashMap<>();
 
         parameters.put("name", name);
+        parameters.put("nameCheck", nameCheck);
     }
 
     @Override

@@ -20,6 +20,9 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final long FINISH_INTERVAL_TIME = 2000;
+    private long   backPressedTime = 0;
+
     private AlertDialog dialog;
     private String searchText;
     private TextView writeText;
@@ -104,8 +107,9 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
                             if(success) {
-                                Toast.makeText(getApplicationContext(), searchText, Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(getApplicationContext(), searchText, Toast.LENGTH_SHORT).show();
                                 Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+                                searchIntent.putExtra("name",searchText); /*송신*/
                                 MainActivity.this.startActivity(searchIntent);
                             }
                             else {
@@ -122,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
 
-                MainRequest mainRequest = new MainRequest(searchText, responseListener);
+                MainRequest mainRequest = new MainRequest(searchText, String.valueOf(0), responseListener);
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 queue.add(mainRequest);
             }
@@ -165,5 +169,23 @@ public class MainActivity extends AppCompatActivity {
         LoginCheck loginCheck = new LoginCheck(checkListener);
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
         queue.add(loginCheck);
+    }
+
+    @Override
+    public void onBackPressed() {
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+        {
+            finishAffinity();
+            System.runFinalization();
+            System.exit(0);
+        }
+        else
+        {
+            backPressedTime = tempTime;
+            Toast.makeText(getApplicationContext(), " 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

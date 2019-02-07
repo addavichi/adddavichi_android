@@ -1,14 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SearchActivity">
 
-    <TextView
-        android:id="@+id/testView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="테스트"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/notice">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/writeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="검색 결과"
+                    android:textColor="@color/colorGray"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/readTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="검색 수 : "
+                    android:textColor="@color/colorGray"
+                    android:textSize="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/button1"
+                        android:text="신뢰도"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dp"
+                        android:clickable="false"
+                        android:background="@color/colorGray"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="퍼센트"
+                        android:id="@+id/button1_1"
+                        android:textStyle="bold"
+                        android:textColor="#FF8000"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_green"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="긍정"
+                        android:id="@+id/button1_2"
+                        android:textStyle="bold"
+                        android:textColor="#04B431"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_green2"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="부정"
+                        android:id="@+id/button1_3"
+                        android:textStyle="bold"
+                        android:textColor="#B40404"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_red"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/button2"
+                        android:text="만족도"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dp"
+                        android:clickable="false"
+                        android:background="@color/colorGray"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="퍼센트"
+                        android:id="@+id/button2_1"
+                        android:textStyle="bold"
+                        android:textColor="#FF8000"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_green"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="긍정"
+                        android:id="@+id/button2_2"
+                        android:textStyle="bold"
+                        android:textColor="#04B431"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_green2"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="부정"
+                        android:id="@+id/button2_3"
+                        android:textStyle="bold"
+                        android:textColor="#B40404"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_red"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/button3"
+                        android:text="키워드"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dp"
+                        android:clickable="false"
+                        android:background="@color/colorGray"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1위"
+                        android:id="@+id/button3_1"
+                        android:textStyle="bold"
+                        android:textColor="#FF8000"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_green"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2위"
+                        android:id="@+id/button3_2"
+                        android:textStyle="bold"
+                        android:textColor="#04B431"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_green2"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3위"
+                        android:id="@+id/button3_3"
+                        android:textStyle="bold"
+                        android:textColor="#B40404"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:background="@drawable/rect_red"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/noticeListView"
+                android:layout_margin="10dp"
+                android:dividerHeight="10dp"
+                android:divider="#ffffff">
+
+            </ListView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment">
+
+        </RelativeLayout>
+    </FrameLayout>
+
 </LinearLayout>

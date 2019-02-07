@@ -6,4 +6,12 @@
     <color name="colorGray">#858484</color>
     <color name="colorLightGray">#bdbebd</color>
     <color name="colorWarning">#ED00CB</color>
+
+    <color name="colorP1">#04B431</color>
+    <color name="colorP2">#FF8000</color>
+    <color name="colorP3">#B40404</color>
+
+    <color name="colorP4">#01DF74</color>
+    <color name="colorP5">#F7BE81</color>
+    <color name="colorP6">#F5A9A9</color>
 </resources>
