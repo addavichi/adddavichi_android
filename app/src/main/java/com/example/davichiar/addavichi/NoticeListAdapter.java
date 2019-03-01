@@ -60,30 +60,32 @@ public class NoticeListAdapter extends BaseAdapter {
         TextView mainContent = (TextView) v.findViewById(R.id.mainContent);
         TextView mainURL = (TextView) v.findViewById(R.id.mainURL);
 
-        if(noticeList.get(position).getSearchAdd().equals("미판정") || noticeList.get(position).getSearchActive().equals("미판정")){
-            mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.loading));
-            mainLayout.setBackground(v.getResources().getDrawable(R.drawable.rect));
-        }
-        else if(noticeList.get(position).getSearchAdd().equals("청정")) {
-            if(noticeList.get(position).getSearchActive().equals("긍정")) {
-                mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.happy));
-                mainLayout.setBackground(v.getResources().getDrawable(R.drawable.rect_green));
-            }
-            else {
-                mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.sad));
+        try {
+            if(noticeList.get(position).getSearchAdd().equals("미판정") || noticeList.get(position).getSearchActive().equals("미판정")){
+                mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.loading));
                 mainLayout.setBackground(v.getResources().getDrawable(R.drawable.rect));
             }
-        }
-        else {
-            mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.advertisement));
-            mainLayout.setBackground(v.getResources().getDrawable(R.drawable.rect_red));
-        }
+            else if(noticeList.get(position).getSearchAdd().equals("청정")) {
+                if(noticeList.get(position).getSearchActive().equals("긍정")) {
+                    mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.happy));
+                    mainLayout.setBackground(v.getResources().getDrawable(R.drawable.rect_green));
+                }
+                else {
+                    mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.sad));
+                    mainLayout.setBackground(v.getResources().getDrawable(R.drawable.rect));
+                }
+            }
+            else {
+                mainImage.setImageDrawable(v.getResources().getDrawable(R.drawable.advertisement));
+                mainLayout.setBackground(v.getResources().getDrawable(R.drawable.rect_red));
+            }
 
-
-        mainTitle.setText(noticeList.get(position).getSearchTitle());
-        mainURL.setText(noticeList.get(position).getSearchLink());
-        mainContent.setText(noticeList.get(position).getSearchContext() + "\n\n날짜 : " +
-                noticeList.get(position).getSearchDate() + "\n닉네임 : " + noticeList.get(position).getSearchNicname());
+            mainTitle.setText(noticeList.get(position).getSearchTitle());
+            mainURL.setText(noticeList.get(position).getSearchLink());
+            mainContent.setText(noticeList.get(position).getSearchContext() + "\n\n날짜 : " +
+                    noticeList.get(position).getSearchDate() + "\n닉네임 : " + noticeList.get(position).getSearchNicname());
+        }
+        catch(Exception e) {}
 
         return v;
     }

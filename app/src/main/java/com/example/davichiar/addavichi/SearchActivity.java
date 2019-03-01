@@ -42,6 +42,7 @@ public class SearchActivity extends AppCompatActivity {
     private int timeTask = 0;
     private float addtest1 = 0, addtest2 = 0, acttest1 = 0, acttest2 = 0, sumtest = 0;
     private String nametest = "미판정";
+    private long timeCheck = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,10 +140,7 @@ public class SearchActivity extends AppCompatActivity {
                     button3_3.setText("-");
                 }
 
-                //1ms마다 handleMessage(Message msg) 반복 호출, 즉 500ms 마다 다시 배경색을
-                int timedata = 500 + (timeTask * 2000);
-                if(timedata > 20000) timedata = 20000;
-                mHandler.sendEmptyMessageDelayed(100, timedata);
+                mHandler.sendEmptyMessageDelayed(100, 300);
             }
         };
         mHandler.sendEmptyMessage(100);
@@ -235,6 +233,8 @@ public class SearchActivity extends AppCompatActivity {
                 sumtest = noticedList.size();
                 adapter.notifyDataSetChanged();
 
+                mHandler.removeMessages(100);
+                mHandler.sendEmptyMessage(100);
             }
             catch (Exception e) {
                 e.printStackTrace();
