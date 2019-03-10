@@ -140,7 +140,7 @@ public class SearchActivity extends AppCompatActivity {
                     button3_3.setText("-");
                 }
 
-                mHandler.sendEmptyMessageDelayed(100, 300);
+                mHandler.sendEmptyMessageDelayed(100, 1000);
             }
         };
         mHandler.sendEmptyMessage(100);
@@ -233,8 +233,8 @@ public class SearchActivity extends AppCompatActivity {
                 sumtest = noticedList.size();
                 adapter.notifyDataSetChanged();
 
-                mHandler.removeMessages(100);
-                mHandler.sendEmptyMessage(100);
+                // mHandler.removeMessages(100);
+                // mHandler.sendEmptyMessage(100);
             }
             catch (Exception e) {
                 e.printStackTrace();
